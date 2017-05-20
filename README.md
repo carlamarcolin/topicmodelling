@@ -4,5 +4,5 @@ Developments in R regarding Topic Modelling studies in PhD course.
   - nWords = amount of words to be compared (suggested: 10).
   - nDim = amount of dimensions (vectors) to be considered. Numeric.
   - matrix = the Term-Topic matrix (suggested: tk from lsa package).
-- Function 2: ordered.lsa: function that ordered Term-Topic matrix (by Rodrigo Heldt). Parameters:
+- Function 2: ordered.lsa: function that ordered Term-Topic matrix (contribuitor: Rodrigo Heldt). Parameters:
   - decomp.matrix = the Term-Topic matrix (suggested: tk from lsa package).
