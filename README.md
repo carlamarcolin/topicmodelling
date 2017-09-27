@@ -7,3 +7,6 @@ Developments in R regarding Topic Modelling studies in PhD course.
   - rotate = Logical. Indicate to apply matrix rotation, implemented with promax. For varimax, just perform a simple code editing. 
 - Function 2: ordered.lsa: function that ordered Term-Topic matrix (contribuitor: Rodrigo Heldt). Parameters:
   - decomp.matrix = the Term-Topic matrix (suggested: tk from lsa package).
+- Function 3: WebScrapping.R: WebScrapper to collect comments from TripAdvisor. Scrap comments considering:
+  - List of main URL from each hotel.
+  - List of sequence of comments (pages available x comments per page).
