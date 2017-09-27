@@ -1,4 +1,4 @@
-# References:
+#References:
 # http://notesofdabbler.github.io/201408_hotelReview/scrapeTripAdvisor.html
 # https://github.com/hadley/rvest/blob/master/demo/tripadvisor.R
 # http://notesofdabbler.github.io/201408_hotelReview/scrapeTripAdvisor.html
@@ -7,7 +7,6 @@
 library(RCurl)
 library(XML)
 library(lubridate)
-library(ggplot2)
 
 options(stringsAsFactors=FALSE)
 
@@ -54,7 +53,7 @@ getOnePage=function(urllink){
   
 }
 
-# Sample URL list from TripAdvisor
+#Sample URL list from TripAdvisor
 urlmainlist=c(
   lagvivmon = "https://www.tripadvisor.com.br/Hotel_Review-g303546-d5006148-Reviews-Hotel_Laghetto_Viverone_Moinhos-Porto_Alegre_State_of_Rio_Grande_do_Sul.html",
   porretbou = "https://www.tripadvisor.com.br/Hotel_Review-g303546-d7153353-Reviews-Porto_Retro_Flat_Boutique-Porto_Alegre_State_of_Rio_Grande_do_Sul.html",
@@ -77,11 +76,10 @@ morepglist=list(
 )
 #----------------------------------------------------------------------------------------------------------
 
-# Use these lists to scrap the comments
+#Use these lists to scrap the comments
 
-# url link for first search page
+#url link for first search page and sequence counter
 urllinkmain=urlmainlist[pickhotel]
-# counter for additional pages
 morepg=as.numeric(morepglist[[pickhotel]])
 
 urllinkpre=paste(strsplit(urllinkmain,"Reviews-")[[1]][1],"Reviews",sep="")
@@ -117,13 +115,8 @@ quote <- reviews %>%
   html_text()
 
 date <- reviews %>%
-  #html_node(".rating .ratingDate") %>%
-  #html_node(".ratingDate") %>%
-  #html_node(".ratingDate relativeDate") %>%
   html_node(".relativeDate") %>%
   html_attr("title") #%>%
-#strptime("%b %d, %Y") %>%
-#as.POSIXct()
 
 review <- reviews %>%
   html_node(".entry .partial_entry") %>%
@@ -132,4 +125,5 @@ review <- reviews %>%
 newRow <- data.frame(id,quote,review,date,stringsAsFactors = FALSE)
 DF <- rbind(DF,newRow)
 }
+                      
 DF_full <- rbind(DF, DF_full)
