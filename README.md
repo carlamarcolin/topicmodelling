@@ -10,6 +10,8 @@ Developments in R regarding Topic Modelling studies in PhD course.
 - Function 3: WebScrapping.R: WebScrapper to collect comments from TripAdvisor. Scrap comments considering:
   - List of main URL from each hotel.
   - List of sequence of comments (pages available x comments per page).
+- Function 4: Classifiers: Trials with SVM and Naive Bayes classifiers in R
+- Function 5: Neural Networks and Topic Modeling: Combine Neural Network Classifier with LSA for classify and construct main topics regarding TripAdvisor data.
 
 # Presentations
   Presentations regarding the work-in-progress (Place, City, Date)
