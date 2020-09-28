@@ -158,10 +158,6 @@ zip_postal_out <- anti_join(zip_codes_u,pt_postal_codes)
 
 write.csv(zip_postal_10,"zip_postal_10.csv")
 
-#Translate
-#my.api <- "AIzaSyAno8RCDfdqWKG6zZSPhCjPH-5-Phk5VdQ"
-#my.api <- AIzaSyAno8RCDfdqWKG6zZSPhCjPH-5-Phk5VdQ
-#x <- translate(content.vec = DF$quote[1050], source.lang = 'en',target.lang = 'pt', google.api.key = my.api )
 
 ################
 #Data treatment 1: remove \n that implies as new "enter" when write.csv:
