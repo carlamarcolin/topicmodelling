@@ -65,7 +65,7 @@ for (i in 1:length(DFLink)){
   
   #Aqui captura TUDO em um grade caracter
   name <- openCon %>%
-    html_nodes("[class='property-card__main-content']") %>%
+    html_nodes("[class='property-card__content']")
     html_text()
   
   #titulo_anunc <- openCon %>%
@@ -98,12 +98,20 @@ gsub("\\s+", " ", DFtextos[2,])
 
 i = 1
 metros2 <- vector()
-for (i in 1:nrow(DFtextos)){
+quartos <- vector()
+aluguel <- vector()
+for (i in 2:nrow(DFtextos)){
   anunc_terms <- strsplit(DFtextos[i,], " ")
-  #Pega o m2
-  m2 <- anunc_terms[[1]][12]
+  #Pega dados
+  m2 <- anunc_terms[[1]][11]
   metros2[i] <- m2
-}
+  qt <- anunc_terms[[1]][7]
+  quartos[i] <- ifelse(is.na(qt)|qt=="",1,qt)
+  for (j in 1:lengths(anunc_terms)){
+    indice_mes <- which(anunc_terms[[1]] %in% "/Mês")
+    aluguel[i] <- anunc_terms[[1]][indice_mes - 1]
+  }
+}  
 
 ###Antigo contador de sequencia dentro do for
 #counter for additional pages
